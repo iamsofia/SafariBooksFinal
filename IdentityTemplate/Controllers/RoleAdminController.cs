@@ -23,7 +23,7 @@ namespace IdentityTemplate.Controllers
             //manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
         }
 
-        //[Authorize(Roles ="Manager")]
+        [Authorize(Roles ="Manager")]
         //
         // GET: /RoleAdmin/
         public ActionResult Index()
@@ -36,7 +36,7 @@ namespace IdentityTemplate.Controllers
             return View();
         }
 
-        //[Authorize(Roles ="Manager")]
+        [Authorize(Roles ="Manager")]
         [HttpPost]
         public ActionResult Create([Required] string name)
         {
@@ -58,7 +58,7 @@ namespace IdentityTemplate.Controllers
             return View(name);
         }
 
-        //[Authorize(Roles ="Manager")]
+        [Authorize(Roles ="Manager")]
         public ActionResult Edit(string id)
         {
             AppRole role = RoleManager.FindById(id);
@@ -68,7 +68,7 @@ namespace IdentityTemplate.Controllers
             return View(new RoleEditModel { Role = role, Members = members, NonMembers = nonMembers });
         }
 
-        //[Authorize(Roles ="Manager")]
+        [Authorize(Roles ="Manager")]
         [HttpPost]
         public ActionResult Edit(RoleModificationModel model)
         {
@@ -124,7 +124,7 @@ namespace IdentityTemplate.Controllers
             }
         }
 
-        //[Authorize (Roles ="Employee")]
+        [Authorize (Roles ="Employee")]
         public ActionResult AllCustomers()
         {
             //AppRole roleName = RoleManager.FindByName(role);
@@ -144,7 +144,7 @@ namespace IdentityTemplate.Controllers
             return View(model);
         }
 
-        //[Authorize (Roles ="Manager")]
+        [Authorize (Roles ="Manager")]
         public ActionResult AllEmployees()
         {
             //AppRole roleName = RoleManager.FindByName(role);

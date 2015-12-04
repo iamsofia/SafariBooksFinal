@@ -307,7 +307,7 @@ namespace IdentityTemplate.Controllers
             return View();
         }
 
-        // GET: /Account/ExternalLoginFailure
+        // GET: /Account/Edit
         [Authorize]
         public async Task<ActionResult> Edit(int? id)
         {
@@ -330,7 +330,7 @@ namespace IdentityTemplate.Controllers
         [HttpPost]
         [ActionName("Edit")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit(RegisterViewModel model)
+        public async Task<ActionResult> Edit(EditProfileViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -358,6 +358,7 @@ namespace IdentityTemplate.Controllers
             return View();
 
         }
+
 
 
         protected override void Dispose(bool disposing)

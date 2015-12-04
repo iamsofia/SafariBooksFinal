@@ -16,7 +16,7 @@ namespace IdentityTemplate.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-     //   [Authorize]
+     [Authorize]
         // GET: /Book/
         public ActionResult Index(string option, string search, string AllBooks)
         {
@@ -61,7 +61,7 @@ namespace IdentityTemplate.Controllers
 
         //return View(books);
 
-        //[Authorize(Roles = "Manager")]
+        [Authorize(Roles = "Manager")]
         // GET: /Book/ManageBooks
         public ActionResult ManageBooks(string option, string search, string AllBooks)
         {
