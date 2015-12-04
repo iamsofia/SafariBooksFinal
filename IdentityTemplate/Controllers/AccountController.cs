@@ -134,8 +134,8 @@ namespace IdentityTemplate.Controllers
 
 
                     await UserManager.AddToRoleAsync(user.Id, "Customer");
-                    //await UserManager.AddToRoleAsync(user.Id, "User");
-                    //await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    await UserManager.AddToRoleAsync(user.Id, "User");
+                    await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
 
 
@@ -144,7 +144,7 @@ namespace IdentityTemplate.Controllers
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
@@ -186,7 +186,7 @@ namespace IdentityTemplate.Controllers
                 if (result.Succeeded)
                 {
                     await UserManager.AddToRoleAsync(user.Id, "Employee");
-                    //await UserManager.AddToRoleAsync(user.Id, "User");
+                    await UserManager.AddToRoleAsync(user.Id, "User");
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
