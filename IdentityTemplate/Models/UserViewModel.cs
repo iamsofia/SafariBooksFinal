@@ -5,7 +5,7 @@ using System.Web;
 
 namespace IdentityTemplate.Models
 {
-   
+        
         public class GroupedUserViewModel
         {
             public List<UserViewModel> Customers { get; set; }

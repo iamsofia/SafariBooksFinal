@@ -58,6 +58,7 @@ namespace IdentityTemplate.Controllers
 
         //
         // GET: /Manage/Index
+        [Authorize]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -99,6 +100,7 @@ namespace IdentityTemplate.Controllers
        
         //
         // GET: /Manage/ChangePassword
+        [Authorize]
         public ActionResult ChangePassword()
         {
             return View();
@@ -130,6 +132,7 @@ namespace IdentityTemplate.Controllers
 
         //
         // GET: /Manage/SetPassword
+        [Authorize]
         public ActionResult SetPassword()
         {
             return View();
@@ -138,6 +141,7 @@ namespace IdentityTemplate.Controllers
         //
         // POST: /Manage/SetPassword
         [HttpPost]
+        [Authorize(Roles = "Manager")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SetPassword(SetPasswordViewModel model)
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 
 namespace IdentityTemplate.Models
@@ -14,6 +15,7 @@ namespace IdentityTemplate.Models
         public IEnumerable<AppUser> NonMembers { get; set; }
     }
 
+    
     public class RoleModificationModel
     {
         [Required]
