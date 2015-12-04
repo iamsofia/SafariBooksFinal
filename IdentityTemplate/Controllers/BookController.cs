@@ -111,6 +111,18 @@ namespace IdentityTemplate.Controllers
         // GET: /Book/Details/5
         public ActionResult Details(int? id)
         {
+            var sum = (from a in db.Reviews
+                       where a.SKU == id && a.IsApproved == true
+                       select a.Rating).Sum();
+
+            var count = (from a in db.Reviews
+                         where a.SKU == id && a.IsApproved == true
+                         select a.Rating).Count();
+
+            decimal average = Convert.ToDecimal (sum) / Convert.ToDecimal( count);
+
+            ViewBag.Ave = average.ToString();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -121,6 +133,7 @@ namespace IdentityTemplate.Controllers
                 return HttpNotFound();
             }
             return View(book);
+
 }
         [Authorize(Roles = "Manager")]
         // GET: /Book/Create

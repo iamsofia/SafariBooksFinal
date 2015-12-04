@@ -86,7 +86,9 @@ namespace IdentityTemplate.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(review).State = EntityState.Modified;
+                //db.Entry(review).State = EntityState.Modified;
+                db.Reviews.Attach(review);
+                db.Entry(review).Property(r => r.IsApproved).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

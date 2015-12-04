@@ -8,16 +8,23 @@ using System.Web;
 using System.Web.Mvc;
 using IdentityTemplate.Models;
 
+
+
 namespace IdentityTemplate.Controllers
 {
+
+
+
     public class CustomerReviewController : Controller
     {
         private AppDbContext db = new AppDbContext();
 
         // GET: CustomerReview
-        public ActionResult Index()
+        public ActionResult Index(string approved)
         {
-            var reviews = db.Reviews.Include(r => r.Book);
+            var reviews = from r in db.Reviews
+                          where r.IsApproved == true
+                          select r;
             return View(reviews.ToList());
         }
 
