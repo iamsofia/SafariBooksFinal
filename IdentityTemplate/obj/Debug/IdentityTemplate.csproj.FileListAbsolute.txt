@@ -535,3 +535,6 @@ C:\Users\McCombs\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\Id
 C:\Users\McCombs\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.dll
 C:\Users\McCombs\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.pdb
 C:\Users\McCombs\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.Migrations.mppppp.resources
+C:\Users\Sofia\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.Migrations.readdreview.resources
+C:\Users\Sofia\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.Migrations._343.resources
+C:\Users\Sofia\Documents\GitHub\SafariBooksFinal\IdentityTemplate\obj\Debug\IdentityTemplate.Migrations.mppppp.resources
