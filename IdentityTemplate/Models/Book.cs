@@ -36,7 +36,7 @@ namespace IdentityTemplate.Models
         //public bool Active { get; set; }
 
 
-        public virtual List<Review> Reviews { get; set; }
+        //public virtual List<Review> Reviews { get; set; } heyfriend
         
     }
 }

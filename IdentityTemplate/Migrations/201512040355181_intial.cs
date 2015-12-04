@@ -3,7 +3,7 @@ namespace IdentityTemplate.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class identity1 : DbMigration
+    public partial class intial : DbMigration
     {
         public override void Up()
         {
@@ -26,8 +26,8 @@ namespace IdentityTemplate.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -46,11 +46,39 @@ namespace IdentityTemplate.Migrations
                         Inventory = c.Int(nullable: false),
                         ReorderPoint = c.Int(nullable: false),
                         Discontinued = c.Boolean(nullable: false),
-                        Rating = c.Int(nullable: false),
-                        Active = c.Boolean(nullable: false),
-                        Review = c.String(),
+                        Order_OrderID = c.Int(),
                     })
-                .PrimaryKey(t => t.SKU);
+                .PrimaryKey(t => t.SKU)
+                .ForeignKey("dbo.Orders", t => t.Order_OrderID)
+                .Index(t => t.Order_OrderID);
+            
+            CreateTable(
+                "dbo.Coupons",
+                c => new
+                    {
+                        CouponID = c.String(nullable: false, maxLength: 20),
+                        Active = c.Boolean(nullable: false),
+                        FreeShipIf = c.Boolean(nullable: false),
+                        FreeShipAll = c.Boolean(nullable: false),
+                        DiscountTotal = c.Boolean(nullable: false),
+                        Discount = c.Decimal(precision: 18, scale: 2),
+                        OrderThreshold = c.Decimal(precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.CouponID);
+            
+            CreateTable(
+                "dbo.CreditCards",
+                c => new
+                    {
+                        CreditCardID = c.Int(nullable: false, identity: true),
+                        CardName = c.String(nullable: false),
+                        CardNumber = c.String(nullable: false),
+                        CardType = c.Int(nullable: false),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.CreditCardID)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.User_Id);
             
             CreateTable(
                 "dbo.AspNetUsers",
@@ -58,16 +86,16 @@ namespace IdentityTemplate.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         FName = c.String(),
+                        MI = c.String(),
                         LName = c.String(),
                         Password = c.String(),
                         Address = c.String(),
                         Zip = c.Int(nullable: false),
-                        CreditCard1 = c.String(),
+                        PhoneNumber = c.String(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
@@ -103,23 +131,92 @@ namespace IdentityTemplate.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId);
             
+            CreateTable(
+                "dbo.Orders",
+                c => new
+                    {
+                        OrderID = c.Int(nullable: false, identity: true),
+                        SKU = c.Int(nullable: false),
+                        CouponID = c.String(maxLength: 20),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.OrderID)
+                .ForeignKey("dbo.Books", t => t.SKU, cascadeDelete: true)
+                .ForeignKey("dbo.Coupons", t => t.CouponID)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.SKU)
+                .Index(t => t.CouponID)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.Reorders",
+                c => new
+                    {
+                        ReorderID = c.Int(nullable: false, identity: true),
+                        SKU = c.Int(nullable: false),
+                        User_Id = c.String(maxLength: 128),
+                    })
+                .PrimaryKey(t => t.ReorderID)
+                .ForeignKey("dbo.Books", t => t.SKU, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.User_Id)
+                .Index(t => t.SKU)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
+                "dbo.RegisterViewModels",
+                c => new
+                    {
+                        Email = c.String(nullable: false, maxLength: 128),
+                        Password = c.String(nullable: false, maxLength: 100),
+                        ConfirmPassword = c.String(),
+                        FName = c.String(nullable: false),
+                        MI = c.String(),
+                        LName = c.String(nullable: false),
+                        Address = c.String(nullable: false),
+                        State = c.String(nullable: false),
+                        Zip = c.Int(nullable: false),
+                        Phone = c.String(nullable: false),
+                        IsManager = c.Boolean(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
+                    })
+                .PrimaryKey(t => t.Email);
+            
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Reorders", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Reorders", "SKU", "dbo.Books");
+            DropForeignKey("dbo.Orders", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Orders", "CouponID", "dbo.Coupons");
+            DropForeignKey("dbo.Books", "Order_OrderID", "dbo.Orders");
+            DropForeignKey("dbo.Orders", "SKU", "dbo.Books");
+            DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.CreditCards", "User_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropIndex("dbo.Reorders", new[] { "User_Id" });
+            DropIndex("dbo.Reorders", new[] { "SKU" });
+            DropIndex("dbo.Orders", new[] { "User_Id" });
+            DropIndex("dbo.Orders", new[] { "CouponID" });
+            DropIndex("dbo.Orders", new[] { "SKU" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
+            DropIndex("dbo.CreditCards", new[] { "User_Id" });
+            DropIndex("dbo.Books", new[] { "Order_OrderID" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropTable("dbo.RegisterViewModels");
+            DropTable("dbo.Reorders");
+            DropTable("dbo.Orders");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
+            DropTable("dbo.CreditCards");
+            DropTable("dbo.Coupons");
             DropTable("dbo.Books");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
