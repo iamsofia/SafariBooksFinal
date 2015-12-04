@@ -14,7 +14,7 @@ namespace IdentityTemplate.Controllers
 {
 
 
-    //[Authorize]
+    
     public class CustomerReviewController : Controller
     {
         private AppDbContext db = new AppDbContext();
