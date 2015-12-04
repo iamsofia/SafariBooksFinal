@@ -339,7 +339,7 @@ namespace IdentityTemplate.Controllers
 
                 // Update the details
 
-                user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone };
+                user = new AppUser { Email = model.Email, FName = model.FName, LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone };
 
                 var result = await manager.UpdateAsync(user);
 
