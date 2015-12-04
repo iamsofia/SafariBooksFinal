@@ -176,101 +176,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201511290535204_identity1.cs" />
-    <Compile Include="Migrations\201511290535204_identity1.Designer.cs">
-      <DependentUpon>201511290535204_identity1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511290707070_identity2.cs" />
-    <Compile Include="Migrations\201511290707070_identity2.Designer.cs">
-      <DependentUpon>201511290707070_identity2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511290716151_identity3.cs" />
-    <Compile Include="Migrations\201511290716151_identity3.Designer.cs">
-      <DependentUpon>201511290716151_identity3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511300431249_identity4.cs" />
-    <Compile Include="Migrations\201511300431249_identity4.Designer.cs">
-      <DependentUpon>201511300431249_identity4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511300642052_identity5.cs" />
-    <Compile Include="Migrations\201511300642052_identity5.Designer.cs">
-      <DependentUpon>201511300642052_identity5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511301740078_id6.cs" />
-    <Compile Include="Migrations\201511301740078_id6.Designer.cs">
-      <DependentUpon>201511301740078_id6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511301936547_id9.cs" />
-    <Compile Include="Migrations\201511301936547_id9.Designer.cs">
-      <DependentUpon>201511301936547_id9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511301946035_id10.cs" />
-    <Compile Include="Migrations\201511301946035_id10.Designer.cs">
-      <DependentUpon>201511301946035_id10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511301957039_id11.cs" />
-    <Compile Include="Migrations\201511301957039_id11.Designer.cs">
-      <DependentUpon>201511301957039_id11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511302017089_id12.cs" />
-    <Compile Include="Migrations\201511302017089_id12.Designer.cs">
-      <DependentUpon>201511302017089_id12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511302031332_id121.cs" />
-    <Compile Include="Migrations\201511302031332_id121.Designer.cs">
-      <DependentUpon>201511302031332_id121.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511302058524_id13.cs" />
-    <Compile Include="Migrations\201511302058524_id13.Designer.cs">
-      <DependentUpon>201511302058524_id13.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201511302211323_Customer2.cs" />
-    <Compile Include="Migrations\201511302211323_Customer2.Designer.cs">
-      <DependentUpon>201511302211323_Customer2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512010504532_id17.cs" />
-    <Compile Include="Migrations\201512010504532_id17.Designer.cs">
-      <DependentUpon>201512010504532_id17.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512010619032_id18.cs" />
-    <Compile Include="Migrations\201512010619032_id18.Designer.cs">
-      <DependentUpon>201512010619032_id18.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512010642519_id19.cs" />
-    <Compile Include="Migrations\201512010642519_id19.Designer.cs">
-      <DependentUpon>201512010642519_id19.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512020437146_Hello.cs" />
-    <Compile Include="Migrations\201512020437146_Hello.Designer.cs">
-      <DependentUpon>201512020437146_Hello.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512030658409_phonenumber.cs" />
-    <Compile Include="Migrations\201512030658409_phonenumber.Designer.cs">
-      <DependentUpon>201512030658409_phonenumber.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512031725389_45.cs" />
-    <Compile Include="Migrations\201512031725389_45.Designer.cs">
-      <DependentUpon>201512031725389_45.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040038124_ReviewClassUpdate.cs" />
-    <Compile Include="Migrations\201512040038124_ReviewClassUpdate.Designer.cs">
-      <DependentUpon>201512040038124_ReviewClassUpdate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040056308_Added.cs" />
-    <Compile Include="Migrations\201512040056308_Added.Designer.cs">
-      <DependentUpon>201512040056308_Added.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040146222_ReviewTable.cs" />
-    <Compile Include="Migrations\201512040146222_ReviewTable.Designer.cs">
-      <DependentUpon>201512040146222_ReviewTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040223525_135.cs" />
-    <Compile Include="Migrations\201512040223525_135.Designer.cs">
-      <DependentUpon>201512040223525_135.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201512040237089_booksearch.cs" />
-    <Compile Include="Migrations\201512040237089_booksearch.Designer.cs">
-      <DependentUpon>201512040237089_booksearch.cs</DependentUpon>
+    <Compile Include="Migrations\201512040225221_newdb.cs" />
+    <Compile Include="Migrations\201512040225221_newdb.Designer.cs">
+      <DependentUpon>201512040225221_newdb.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,6 +216,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <None Include="Properties\PublishProfiles\SafariBooks21FTW - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SafariBooks21FTW - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -383,77 +293,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511290535204_identity1.resx">
-      <DependentUpon>201511290535204_identity1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511290707070_identity2.resx">
-      <DependentUpon>201511290707070_identity2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511290716151_identity3.resx">
-      <DependentUpon>201511290716151_identity3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511300431249_identity4.resx">
-      <DependentUpon>201511300431249_identity4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511300642052_identity5.resx">
-      <DependentUpon>201511300642052_identity5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511301740078_id6.resx">
-      <DependentUpon>201511301740078_id6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511301936547_id9.resx">
-      <DependentUpon>201511301936547_id9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511301946035_id10.resx">
-      <DependentUpon>201511301946035_id10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511301957039_id11.resx">
-      <DependentUpon>201511301957039_id11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511302017089_id12.resx">
-      <DependentUpon>201511302017089_id12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511302031332_id121.resx">
-      <DependentUpon>201511302031332_id121.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511302058524_id13.resx">
-      <DependentUpon>201511302058524_id13.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201511302211323_Customer2.resx">
-      <DependentUpon>201511302211323_Customer2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512010504532_id17.resx">
-      <DependentUpon>201512010504532_id17.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512010619032_id18.resx">
-      <DependentUpon>201512010619032_id18.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512010642519_id19.resx">
-      <DependentUpon>201512010642519_id19.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512020437146_Hello.resx">
-      <DependentUpon>201512020437146_Hello.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512030658409_phonenumber.resx">
-      <DependentUpon>201512030658409_phonenumber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512031725389_45.resx">
-      <DependentUpon>201512031725389_45.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040038124_ReviewClassUpdate.resx">
-      <DependentUpon>201512040038124_ReviewClassUpdate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040056308_Added.resx">
-      <DependentUpon>201512040056308_Added.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040146222_ReviewTable.resx">
-      <DependentUpon>201512040146222_ReviewTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040223525_135.resx">
-      <DependentUpon>201512040223525_135.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201512040237089_booksearch.resx">
-      <DependentUpon>201512040237089_booksearch.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201512040225221_newdb.resx">
+      <DependentUpon>201512040225221_newdb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
