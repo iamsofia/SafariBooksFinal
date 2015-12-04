@@ -30,11 +30,11 @@
                     <td>User.Id</td>
                     <td>@role.Name</td>
                     <td>
-                        @*@if (role.Users == null || role.Users.Count == 0)
+                        @if (role.Users == null || role.Users.Count == 0)
                         {
                             @: No Users in role
                         }
-                        else*@
+                        else
                         {
                             <p>@string.Join(", ", role.Users.Select(x => Html.GetUserName(x.UserId)))</p>
                         }
