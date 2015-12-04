@@ -10,18 +10,18 @@ using IdentityTemplate.Models;
 
 namespace IdentityTemplate.Controllers
 {
-    public class ReviewController : Controller
+    public class EmployeeReviewController : Controller
     {
         private AppDbContext db = new AppDbContext();
 
-        // GET: Review
+        // GET: EmployeeReview
         public ActionResult Index()
         {
             var reviews = db.Reviews.Include(r => r.Book);
             return View(reviews.ToList());
         }
 
-        // GET: Review/Details/5
+        // GET: EmployeeReview/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,14 +36,14 @@ namespace IdentityTemplate.Controllers
             return View(review);
         }
 
-        // GET: Review/Create
+        // GET: EmployeeReview/Create
         public ActionResult Create()
         {
             ViewBag.SKU = new SelectList(db.Books, "SKU", "Title");
             return View();
         }
 
-        // POST: Review/Create
+        // POST: EmployeeReview/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -61,7 +61,7 @@ namespace IdentityTemplate.Controllers
             return View(review);
         }
 
-        // GET: Review/Edit/5
+        // GET: EmployeeReview/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,7 +77,7 @@ namespace IdentityTemplate.Controllers
             return View(review);
         }
 
-        // POST: Review/Edit/5
+        // POST: EmployeeReview/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -94,7 +94,7 @@ namespace IdentityTemplate.Controllers
             return View(review);
         }
 
-        // GET: Review/Delete/5
+        // GET: EmployeeReview/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,7 @@ namespace IdentityTemplate.Controllers
             return View(review);
         }
 
-        // POST: Review/Delete/5
+        // POST: EmployeeReview/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

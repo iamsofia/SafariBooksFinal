@@ -171,9 +171,10 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CouponController.cs" />
     <Compile Include="Controllers\CreditCardController.cs" />
+    <Compile Include="Controllers\CustomerReviewController.cs" />
+    <Compile Include="Controllers\EmployeeReviewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -294,12 +295,17 @@
     <Content Include="Views\RoleAdmin\AllCustomers.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\RoleAdmin\AllEmployees.cshtml" />
-    <Content Include="Views\Review\Create.cshtml" />
-    <Content Include="Views\Review\Delete.cshtml" />
-    <Content Include="Views\Review\Details.cshtml" />
-    <Content Include="Views\Review\Edit.cshtml" />
-    <Content Include="Views\Review\Index.cshtml" />
     <Content Include="Views\Book\ManageBooks.cshtml" />
+    <Content Include="Views\CustomerReview\Create.cshtml" />
+    <Content Include="Views\CustomerReview\Delete.cshtml" />
+    <Content Include="Views\CustomerReview\Details.cshtml" />
+    <Content Include="Views\CustomerReview\Edit.cshtml" />
+    <Content Include="Views\CustomerReview\Index.cshtml" />
+    <Content Include="Views\EmployeeReview\Create.cshtml" />
+    <Content Include="Views\EmployeeReview\Delete.cshtml" />
+    <Content Include="Views\EmployeeReview\Details.cshtml" />
+    <Content Include="Views\EmployeeReview\Edit.cshtml" />
+    <Content Include="Views\EmployeeReview\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
