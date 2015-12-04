@@ -16,7 +16,7 @@ namespace IdentityTemplate.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
-        [Authorize]
+     //   [Authorize]
         // GET: /Book/
         public ActionResult Index(string option, string search, string AllBooks)
         {
