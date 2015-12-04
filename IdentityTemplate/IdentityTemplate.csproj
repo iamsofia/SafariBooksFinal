@@ -283,7 +283,6 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Models\Reorder.cs" />
-    <Compile Include="Models\Review.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
