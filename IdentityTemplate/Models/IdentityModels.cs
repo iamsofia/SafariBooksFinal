@@ -36,7 +36,7 @@ namespace IdentityTemplate.Models
         public virtual ICollection<Order> Orders { get; set; }
 
 
-        //public virtual ICollection<Review> MyReviews { get; set; } heyfriend
+        public virtual ICollection<Review> MyReviews { get; set; }
 
         public virtual ICollection<Reorder> Reorders { get; set; } //this is only for employees
         
@@ -115,6 +115,6 @@ namespace IdentityTemplate.Models
 
         public System.Data.Entity.DbSet<IdentityTemplate.Models.CreditCard> CreditCards { get; set; }
 
-        //public System.Data.Entity.DbSet<IdentityTemplate.Models.Review> Reviews { get; set; } heyfriend
+        public System.Data.Entity.DbSet<IdentityTemplate.Models.Review> Reviews { get; set; }
     }
 }
