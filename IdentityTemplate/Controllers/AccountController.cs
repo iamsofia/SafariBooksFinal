@@ -29,7 +29,7 @@ namespace IdentityTemplate.Controllers
             manager = new UserManager<AppUser>(new UserStore<AppUser>(db));
         }
 
-        public AccountController(AppUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(AppUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -41,9 +41,9 @@ namespace IdentityTemplate.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -99,7 +99,7 @@ namespace IdentityTemplate.Controllers
             }
         }
 
-       
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
@@ -118,9 +118,9 @@ namespace IdentityTemplate.Controllers
             if (ModelState.IsValid)
             {
                 //TODO: Add fields to user here so they will be saved to the database
-                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, MI = model.MI, LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone};
+                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, MI = model.MI, LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                
+
 
                 //TODO:  Once you get roles working, you may want to add users to roles upon creation
                 // await UserManager.AddToRoleAsync(user.Id, "User");
@@ -130,16 +130,16 @@ namespace IdentityTemplate.Controllers
 
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-            
-                        await UserManager.AddToRoleAsync(user.Id, "Customer");
-                        //await UserManager.AddToRoleAsync(user.Id, "User");
-                        //await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                    
+                    await UserManager.AddToRoleAsync(user.Id, "Customer");
+                    //await UserManager.AddToRoleAsync(user.Id, "User");
+                    //await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
 
-                    
+
+
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -173,7 +173,7 @@ namespace IdentityTemplate.Controllers
             if (ModelState.IsValid)
             {
                 //TODO: Add fields to user here so they will be saved to the database
-                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, MI = model.MI,  LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone };
+                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, MI = model.MI, LName = model.LName, Address = model.Address, Zip = model.Zip, PhoneNumber = model.Phone };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
 
@@ -191,7 +191,7 @@ namespace IdentityTemplate.Controllers
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
 
-                    
+
 
                     return RedirectToAction("Index", "Home");
 
@@ -309,9 +309,22 @@ namespace IdentityTemplate.Controllers
 
         // GET: /Account/ExternalLoginFailure
         [Authorize]
-        public ActionResult Edit()
+        public async Task<ActionResult> Edit(int? id)
         {
-            return View();
+            //AppUser profile = AppUser.GetUserProfile(User.Identity.Name);
+            // EditProfileViewModel model = new EditProfileViewModel
+            var currentUser = await manager.FindByIdAsync(User.Identity.GetUserId());
+            var model = new EditProfileViewModel
+            {
+                Email = currentUser.Email,
+                FName = currentUser.FName,
+                MI = currentUser.MI,
+                LName = currentUser.LName,
+                Address = currentUser.Address,
+                Zip = currentUser.Zip,
+                Phone = currentUser.PhoneNumber
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -337,16 +350,15 @@ namespace IdentityTemplate.Controllers
                     //db.Entry(user).State = System.Data.Entity.EntityState.Modified;
 
                     return RedirectToAction("Account");
-                    
+
                 }
                 AddErrors(result);
-                
+
             }
             return View();
-                       
+
         }
 
-        //
 
         protected override void Dispose(bool disposing)
         {

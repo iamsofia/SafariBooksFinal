@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IdentityTemplate.Models
 {
-   
+
     public class LoginViewModel
     {
         [Required]
@@ -119,6 +119,36 @@ namespace IdentityTemplate.Models
 
     public class EditProfileViewModel
     {
+        [Required]
+        [Display(Name = "Email")]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FName { get; set; }
+
+        [Display(Name = "Middle Initial")]
+        public string MI { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LName { get; set; }
+
+        [Required]
+        [Display(Name = "Street Address")]
+        public string Address { get; set; }
+
+
+        [Required]
+        [Display(Name = "Zip Code")]
+        public int Zip { get; set; }
+
+        [Required]
+        [PhoneAttribute]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
 
     }
 }
