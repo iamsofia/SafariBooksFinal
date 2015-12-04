@@ -16,6 +16,7 @@ namespace IdentityTemplate.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
+        [Authorize]
         // GET: /Book/
         public ActionResult Index(string option, string search, string AllBooks)
         {
@@ -60,7 +61,7 @@ namespace IdentityTemplate.Controllers
 
         //return View(books);
 
-
+        [Authorize(Roles = "Manager")]
         // GET: /Book/ManageBooks
         public ActionResult ManageBooks(string option, string search, string AllBooks)
         {
@@ -121,13 +122,15 @@ namespace IdentityTemplate.Controllers
             }
             return View(book);
 }
-
+        [Authorize(Roles = "Manager")]
         // GET: /Book/Create
         public ActionResult Create()
         {
             return View();
         }
 
+
+        [Authorize(Roles = "Manager")]
         // POST: /Book/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -145,6 +148,8 @@ namespace IdentityTemplate.Controllers
             return View(book);
         }
 
+
+        [Authorize(Roles = "Manager")]
         // GET: /Book/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -160,6 +165,7 @@ namespace IdentityTemplate.Controllers
             return View(book);
         }
 
+        [Authorize(Roles = "Manager")]
         // POST: /Book/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
