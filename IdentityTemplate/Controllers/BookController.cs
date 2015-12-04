@@ -46,18 +46,64 @@ namespace IdentityTemplate.Controllers
                 return View(db.Books);
             }
             if (AllBooks == null)
-            { return View(db.Books);
+            {
+                return View(db.Books);
+            }
+            return View();
         }
-         return View();
-             }
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    books = books.Where(s => s.Title.Contains(searchString));
-                
+        //if (!String.IsNullOrEmpty(searchString))
+        //{
+        //    books = books.Where(s => s.Title.Contains(searchString));
+
+        //}
+
+
+        //return View(books);
+
+
+        // GET: /Book/ManageBooks
+        public ActionResult ManageBooks(string option, string search, string AllBooks)
+        {
+            var books = from m in db.Books
+                        select m;
+
+            if (option == "Title")
+            {
+                return View(db.Books.Where(x => x.Title.Contains(search) || search == null).ToList());
+            }
+            //} else if (option == "SKU") {
+            //    return View(db.Books.Where(x=>x.SKU == search || search == null).ToList());
             //}
+            else if (option == "Genre")
+            {
+                return View(db.Books.Where(x => x.Genre.Contains(search) || search == null).ToList());
+            }
+            else if (option == "AuthorFirst,AuthorLast")
+            {
+                return View(db.Books.Where(x => x.AuthorFirst.Contains(search) || x.AuthorLast.Contains(search) || search == null).ToList());
+            }
+            else if (option == "AuthorFirst,AuthorLast")
+            {
+                return View(db.Books.Where(x => x.AuthorFirst.Contains(search) || x.AuthorLast.Contains(search) || x.Title.Contains(search) || search == null).ToList());
+            }
+            else if (option == null)
+            {
+                return View(db.Books);
+            }
+            if (AllBooks == null)
+            {
+                return View(db.Books);
+            }
+            return View();
+        }
+        //if (!String.IsNullOrEmpty(searchString))
+        //{
+        //    books = books.Where(s => s.Title.Contains(searchString));
+
+        //}
 
 
-            //return View(books);
+        //return View(books);
             
         
 
