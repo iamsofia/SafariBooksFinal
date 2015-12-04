@@ -10,6 +10,7 @@ using IdentityTemplate.Models;
 
 namespace IdentityTemplate.Controllers
 {
+    [Authorize (Roles="Employee")]
     public class EmployeeReviewController : Controller
     {
         private AppDbContext db = new AppDbContext();

@@ -14,12 +14,13 @@ namespace IdentityTemplate.Controllers
 {
 
 
-
+    //[Authorize]
     public class CustomerReviewController : Controller
     {
         private AppDbContext db = new AppDbContext();
 
         // GET: CustomerReview
+        [Authorize]
         public ActionResult Index(string approved)
         {
             var reviews = from r in db.Reviews
@@ -29,6 +30,7 @@ namespace IdentityTemplate.Controllers
         }
 
         // GET: CustomerReview/Details/5
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -44,6 +46,7 @@ namespace IdentityTemplate.Controllers
         }
 
         // GET: CustomerReview/Create
+        [Authorize]
         public ActionResult Create()
         {
             ViewBag.SKU = new SelectList(db.Books, "SKU", "Title");
@@ -54,6 +57,7 @@ namespace IdentityTemplate.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ReviewID,SKU,CustomerReview,IsApproved,Rating")] Review review)
         {
@@ -69,6 +73,7 @@ namespace IdentityTemplate.Controllers
         }
 
         // GET: CustomerReview/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -88,6 +93,7 @@ namespace IdentityTemplate.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ReviewID,SKU,CustomerReview,IsApproved,Rating")] Review review)
         {
@@ -102,6 +108,7 @@ namespace IdentityTemplate.Controllers
         }
 
         // GET: CustomerReview/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -117,6 +124,7 @@ namespace IdentityTemplate.Controllers
         }
 
         // POST: CustomerReview/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
