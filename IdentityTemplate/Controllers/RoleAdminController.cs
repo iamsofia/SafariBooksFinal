@@ -101,7 +101,7 @@ namespace IdentityTemplate.Controllers
 
 
         private void AddErrorsFromResult(IdentityResult result)
-        { 
+        {
             foreach (string error in result.Errors)
             {
                 ModelState.AddModelError("", error);
@@ -116,7 +116,7 @@ namespace IdentityTemplate.Controllers
             }
         }
 
-        private AppRoleManager RoleManager 
+        private AppRoleManager RoleManager
         {
             get
             {
@@ -130,10 +130,10 @@ namespace IdentityTemplate.Controllers
             //AppRole roleName = RoleManager.FindByName(role);
 
             var allusers = db.Users.ToList();
-            var users = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("f32fa611-547f-4761-bfa3-9682f677e04c")).ToList();
+            var users = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("1aa2ddba-81d6-4a91-85b8-9d7505f44a52")).ToList();
             var userVM = users.Select(user => new UserViewModel { Username = user.UserName, Roles = string.Join(",", user.Roles.Select(role => role.RoleId)) }).ToList();
 
-            var customers = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("04d2547f-4935-4842-add6-a0a1229eae16")).ToList();
+            var customers = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("116e3bb5-494b-4def-aa88-5ce7e0a3f365")).ToList();
             var customersVM = customers.Select(user => new UserViewModel { Username = user.UserName, Roles = string.Join(",", user.Roles.Select(role => role.RoleId)) }).ToList();
             var model = new GroupedUserViewModel { Customers = userVM, Managers = customersVM };
 
@@ -150,10 +150,10 @@ namespace IdentityTemplate.Controllers
             //AppRole roleName = RoleManager.FindByName(role);
 
             var allusers = db.Users.ToList();
-            var users = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("f32fa611-547f-4761-bfa3-9682f677e04c")).ToList();
+            var users = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("1aa2ddba-81d6-4a91-85b8-9d7505f44a52")).ToList();
             var userVM = users.Select(user => new UserViewModel { Username = user.UserName, Roles = string.Join(",", user.Roles.Select(role => role.RoleId)) }).ToList();
 
-            var managers = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("99c46225-ddc3-46c9-8f04-223224399e61")).ToList();
+            var managers = allusers.Where(x => x.Roles.Select(role => role.RoleId).Contains("002ab2bc-29fe-4b46-a20f-fb50ceca9221")).ToList();
             var managersVM = managers.Select(user => new UserViewModel { Username = user.UserName, Roles = string.Join(",", user.Roles.Select(role => role.RoleId)) }).ToList();
             var model = new GroupedUserViewModel { Customers = userVM, Managers = managersVM };
 
@@ -161,6 +161,6 @@ namespace IdentityTemplate.Controllers
         }
 
 
-       
-	}
+
+    }
 }
